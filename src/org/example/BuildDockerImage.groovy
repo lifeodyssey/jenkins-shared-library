@@ -10,6 +10,6 @@ class BuildDockerImage {
     }
 
     void build() {
-        sh "docker build -t ${imageName} ./${svcName}"
+        buildDockerImage(imageName,svcName)
     }
 }

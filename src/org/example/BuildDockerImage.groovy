@@ -2,7 +2,7 @@ package org.example
 
 class BuildDockerImage {
     String imageName
-    String svcName="book-svc"
+    String svcName
 
     BuildDockerImage(String imageName,String svcName) {
         this.imageName = imageName

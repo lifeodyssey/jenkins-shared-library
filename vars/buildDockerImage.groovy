@@ -1,4 +1,4 @@
 // buildDockerImage.groovy
-def call(String imageName,String svcName) {
-    sh "docker build -t ${imageName} ./${svcName}"
+def call(Map config = [:]){
+    sh "docker build -t ${config.imageName} ./${config.svcName}"
 }

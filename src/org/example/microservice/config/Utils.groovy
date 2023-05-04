@@ -7,7 +7,9 @@ class Utils {
     static String getDatabaseUrlFromResource(String env) {
         def environment = Environment.valueOf(env)
         def props = new Properties()
-        props.load(getClass().getResourceAsStream("/configurations/${environment.getFilePath()}"))
+        def classLoader = this.class.classLoader
+        def inputStream = classLoader.getResourceAsStream("configurations/${environment.getFilePath()}")
+        props.load(inputStream)
         return props.getProperty(Constant.MONGODB_URI)
     }
 }

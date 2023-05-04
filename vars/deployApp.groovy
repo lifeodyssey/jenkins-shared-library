@@ -1,5 +1,9 @@
+import org.example.microservice.config.Utils
+
 // deployApp.groovy
 def call(Map config = [:]) {
     loadLinuxScript(name: "deployApp.sh")
-    sh "./deployApp.sh ${config.APP_ENV} ${config.MONGODB_URI}"
+    def APP_ENV = config.APP_ENV ?: 'DEV'
+    def MONGODB_URI = config.MONGODB_URI ?: Utils.getDatabaseUrlFromResource(APP_ENV)
+    sh "./deployApp.sh ${APP_ENV} ${MONGODB_URI}"
 }

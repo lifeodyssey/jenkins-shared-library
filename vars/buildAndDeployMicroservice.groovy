@@ -26,8 +26,6 @@ def call() {
             stage('Deploy to QA approval') {
                 steps {
                     input "Deploy to QA?"
-                }
-                steps {
                     script {
                         deployApp(APP_ENV: 'QA')
                     }

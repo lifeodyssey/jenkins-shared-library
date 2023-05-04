@@ -27,8 +27,6 @@ def call() {
                 steps {
                     input "Deploy to QA?"
                 }
-            }K
-            stage('QA') {
                 steps {
                     script {
                         deployApp(APP_ENV: 'QA')

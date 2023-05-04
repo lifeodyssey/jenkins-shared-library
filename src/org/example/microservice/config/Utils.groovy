@@ -8,7 +8,7 @@ class Utils {
         def environment = Environment.valueOf(env)
         def props = new Properties()
         def classLoader = this.class.classLoader
-        def inputStream = classLoader.getResourceAsStream("configurations/${environment.getFilePath()}")
+        def inputStream = classLoader.getResourceAsStream("${environment.getFilePath()}")
         props.load(inputStream)
         return props.getProperty(Constant.MONGODB_URI)
     }

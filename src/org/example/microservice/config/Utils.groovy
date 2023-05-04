@@ -8,6 +8,6 @@ class Utils {
         def environment = Environment.valueOf(env)
         def props = new Properties()
         props.load(getClass().getResourceAsStream("/configurations/${environment.getFilePath()}"))
-        return properties.getProperty(Constant.MONGODB_URI)
+        return props.getProperty(Constant.MONGODB_URI)
     }
 }

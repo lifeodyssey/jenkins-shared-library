@@ -9,7 +9,8 @@ class containerizationStep {
 
     private static def buildDockerImage(Map config = [:]) {
         // Call the buildDockerImage method defined in vars/buildDockerImage.groovy
-        buildDockerImage(config)
+        sh "docker build -t ${config.imageName} ./${config.svcName}"
+        return this
     }
 }
 

@@ -6,7 +6,7 @@ class BuildStep {
         this.steps = steps
     }
 
-    static def buildArtifact(String language, String buildTool) {
+     def buildArtifact(String language, String buildTool) {
         if (!language || !buildTool) {
             throw new IllegalArgumentException("Language and build tool parameters are required.")
         }
@@ -19,7 +19,7 @@ class BuildStep {
         builderMethod()
     }
 
-    private static def getBuilderMethod(language, buildTool) {
+    private def getBuilderMethod(language, buildTool) {
         def builderMethod
 
         switch ([language, buildTool].join(':')) {
@@ -45,17 +45,17 @@ class BuildStep {
         steps.sh "./gradlew clean build"
     }
 
-    private static def buildMaven() {
+    def buildMaven() {
         // Call the buildMaven method defined in vars/buildMaven.groovy
         //buildMaven()
     }
 
-    private static def buildNpm() {
+    def buildNpm() {
         // Call the buildNpm method defined in vars/buildNpm.groovy
         //buildNpm()
     }
 
-    private static def buildYarn() {
+    def buildYarn() {
         // Call the buildYarn method defined in vars/buildYarn.groovy
         //buildYarn()
     }

@@ -1,5 +1,11 @@
 package org.example.microservice.ci.build
-class buildStep {
+class BuildStep {
+    def steps
+
+    BuildStep(steps) {
+        this.steps = steps
+    }
+
     static def buildArtifact(String language, String buildTool) {
         if (!language || !buildTool) {
             throw new IllegalArgumentException("Language and build tool parameters are required.")
@@ -34,24 +40,24 @@ class buildStep {
         return builderMethod
     }
 
-    private static def buildGradle() {
-        // Call the buildGradle method defined in vars/buildGradle.groovy
-        sh "./gradlew clean build"
+    def buildGradle() {
+        // Call the buildArtifact method defined in vars/buildArtifact.groovy
+        steps.sh "./gradlew clean build"
     }
 
     private static def buildMaven() {
         // Call the buildMaven method defined in vars/buildMaven.groovy
-        buildMaven()
+        //buildMaven()
     }
 
     private static def buildNpm() {
         // Call the buildNpm method defined in vars/buildNpm.groovy
-        buildNpm()
+        //buildNpm()
     }
 
     private static def buildYarn() {
         // Call the buildYarn method defined in vars/buildYarn.groovy
-        buildYarn()
+        //buildYarn()
     }
 }
 

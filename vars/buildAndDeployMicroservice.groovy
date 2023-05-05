@@ -1,5 +1,3 @@
-import org.example.microservice.ci.build.buildStep
-import org.example.microservice.ci.containerization.containerizationStep
 def call(Map config = [:]) {
     String language = config.language
     String buildTool = config.buildTool
@@ -11,14 +9,14 @@ def call(Map config = [:]) {
             stage('Test and Build Jar') {
                 steps {
                     script {
-                    buildStep.buildArtifact(language, buildTool)
+                        buildArtifact(language, buildTool)
                     }
                 }
             }
             stage('Build Image') {
                 steps {
                     script {
-                        containerizationStep.buildImage(imageName, svcName)
+                        buildDockerImage(imageName,svcName)
                     }
                 }
             }

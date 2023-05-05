@@ -1,4 +1,7 @@
+import org.example.microservice.ci.containerization.ContainerizationStep
+
 // buildDockerImage.groovy
-def call(Map config = [:]){
-    sh "docker build -t ${config.imageName} ./${config.svcName}"
+def call(imageName,svcName){
+    ContainerizationStep step=new ContainerizationStep(this)
+    step.buildDockerImage(imageName,svcName)
 }

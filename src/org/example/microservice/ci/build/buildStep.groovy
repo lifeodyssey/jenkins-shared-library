@@ -1,7 +1,6 @@
 package org.example.microservice.ci.build
 class buildStep {
-
-    def buildArtifact(String language, String buildTool) {
+    static def buildArtifact(String language, String buildTool) {
         if (!language || !buildTool) {
             throw new IllegalArgumentException("Language and build tool parameters are required.")
         }
@@ -11,7 +10,6 @@ class buildStep {
         if (!builderMethod) {
             throw new IllegalArgumentException("Unsupported language or build tool: ${language}, ${buildTool}")
         }
-
         builderMethod()
     }
 

@@ -36,7 +36,7 @@ class buildStep {
 
     private static def buildGradle() {
         // Call the buildGradle method defined in vars/buildGradle.groovy
-        buildGradle()
+        sh "./gradlew clean build"
     }
 
     private static def buildMaven() {

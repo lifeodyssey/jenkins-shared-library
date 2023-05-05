@@ -4,5 +4,5 @@ import org.example.microservice.config.Utils
 // deployApp.groovy
 def call(appEnv) {
     def deployStep=new DeployToLocal(this)
-    DeployToLocal.deployApp(appEnv)
+    deployStep.deployApp(appEnv)
 }

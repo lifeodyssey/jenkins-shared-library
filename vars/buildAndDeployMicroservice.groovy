@@ -1,10 +1,10 @@
 import org.example.microservice.ci.build.buildStep
 import org.example.microservice.ci.containerization.containerizationStep
 def call(Map config = [:]) {
-    def language = config.language
-    def buildTool = config.buildTool
-    def imageName = config.imageName
-    def svcName = config.svcName
+    String language = config.language
+    String buildTool = config.buildTool
+    String imageName = config.imageName
+    String svcName = config.svcName
     pipeline {
         agent any
         stages {

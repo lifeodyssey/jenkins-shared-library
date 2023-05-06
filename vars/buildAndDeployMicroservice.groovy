@@ -6,7 +6,7 @@ def call(Map config = [:]) {
 
     node {
         stage('Test and Build Jar') {
-            buildArtifact(language, buildTool)
+            buildArtifact(language, buildTool,svcName)
         }
         stage('Build Image') {
             buildDockerImage(imageName, svcName)

@@ -6,7 +6,7 @@ class BuildStep {
         this.steps = steps
     }
 
-     def buildArtifact(String language, String buildTool) {
+     def buildArtifact(String language, String buildTool,String svcName){
         if (!language || !buildTool) {
             throw new IllegalArgumentException("Language and build tool parameters are required.")
         }
@@ -16,7 +16,7 @@ class BuildStep {
         if (!builderMethod) {
             throw new IllegalArgumentException("Unsupported language or build tool: ${language}, ${buildTool}")
         }
-        builderMethod()
+        builderMethod(svcName)
     }
 
     private def getBuilderMethod(language, buildTool) {
@@ -40,9 +40,9 @@ class BuildStep {
         return builderMethod
     }
 
-    def buildGradle() {
+    def buildGradle(svcName) {
         // Call the buildArtifact method defined in vars/buildArtifact.groovy
-        steps.sh "./gradlew clean build"
+        steps.sh "./gradlew clean build -p ${svcName}"
     }
 
     def buildMaven() {

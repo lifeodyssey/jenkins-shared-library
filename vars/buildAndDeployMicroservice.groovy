@@ -6,6 +6,8 @@ def call(Map config = [:]) {
 
 
     node {
+        checkout scm
+
         stage('Test and Build Jar') {
             buildArtifact(language, buildTool, svcName)
         }

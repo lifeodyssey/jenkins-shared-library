@@ -44,7 +44,7 @@ class BuildStep {
         // Call the buildArtifact method defined in vars/buildArtifact.groovy
         steps.sh "pwd"
         steps.sh "ls -a"
-        steps.sh "./gradlew clean build -p ${svcName}"
+        steps.sh "../gradlew clean build -p ${svcName}"
     }
 
     def buildMaven() {
